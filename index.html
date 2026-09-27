@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>StashWhisper — Private, Offline Lecture Transcription for Windows</title>
+  <meta name="description"
+        content="Record lectures and meetings and transcribe them in real time, 100% offline, with local Whisper AI on your Windows PC. One click exports a ready-to-use prompt for ChatGPT, Claude, or Gemini so you can turn it into study notes. Available exclusively on the Microsoft Store.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0B1020',
+            primary: '#6366F1',
+            accent: '#8B5CF6',
+            surface: '#F8FAFC'
+          },
+          boxShadow: {
+            soft: '0 25px 80px rgba(15,23,42,.12)',
+            glow: '0 20px 70px rgba(99,102,241,.25)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+                   BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(99,102,241,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,.055) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .glass {
+      background: rgba(255,255,255,.75);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-900">
+
+<!-- ========================================================= -->
+<!-- NAVIGATION -->
+<!-- ========================================================= -->
+
+<header class="fixed top-0 left-0 right-0 z-50">
+  <nav class="glass border-b border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16
+                flex items-center justify-between">
+
+      <a href="#" class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-xl
+                    bg-gradient-to-br from-indigo-500 to-violet-600
+                    flex items-center justify-center text-white font-bold">
+          S
+        </div>
+        <span class="font-bold text-lg tracking-tight">
+          StashWhisper
+        </span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-7 text-sm
+                  text-slate-600">
+        <a href="#features" class="hover:text-slate-950">Features</a>
+        <a href="#showcase" class="hover:text-slate-950">How It Works</a>
+        <a href="#pricing" class="hover:text-slate-950">Pricing</a>
+        <a href="#faq" class="hover:text-slate-950">FAQ</a>
+      </div>
+
+      <a href="#pricing"
+         class="hidden sm:inline-flex px-4 py-2 rounded-lg
+                bg-slate-950 text-white text-sm font-semibold
+                hover:bg-slate-800 transition">
+        Try StashWhisper
+      </a>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ========================================================= -->
+<!-- HERO -->
+<!-- ========================================================= -->
+
+<section class="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28
+                hero-grid">
+
+  <div class="absolute inset-0 bg-gradient-to-b
+              from-indigo-50/70 via-white/50 to-white pointer-events-none">
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="max-w-4xl mx-auto text-center">
+
+      <div class="inline-flex items-center gap-2 px-3 py-1.5
+                  rounded-full bg-indigo-50 border border-indigo-100
+                  text-indigo-700 text-sm font-medium mb-7">
+        <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+        100% Offline Transcription · 0 Recordings Uploaded, Ever
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-7xl
+                 font-black tracking-tight leading-[1.05]">
+        Record Lectures,
+        <span class="gradient-text">Export Smart AI Prompts</span>
+        in One Click.
+      </h1>
+
+      <p class="mt-7 text-lg sm:text-xl text-slate-600
+                max-w-2xl mx-auto leading-relaxed">
+        Transcribe live lectures and meetings 100% offline with local
+        Whisper AI — nothing is uploaded automatically. When you want
+        study notes, one click turns your transcript into a ready-to-use
+        prompt for the AI chat you already use (ChatGPT, Claude, Gemini).
+      </p>
+
+      <div class="mt-9 flex justify-center">
+
+        <!-- StashWhisper is distributed exclusively through the Microsoft
+             Store -- no direct .exe download is offered. Store commerce
+             (Windows.Services.Store) also handles Pro purchase and
+             license entitlement once that ships; see README/Terms.
+             TODO(launch): swap this placeholder for the real
+             ms-windows-store://pdp/?ProductId=... link once the listing
+             is approved, and drop cursor-not-allowed / the "Coming Soon"
+             label at the same time. -->
+        <span
+           class="inline-flex items-center justify-center
+                  px-7 py-3.5 rounded-xl
+                  bg-slate-950 text-white font-semibold
+                  shadow-lg cursor-not-allowed opacity-90"
+           title="Microsoft Store listing is coming soon">
+          Get it on Microsoft Store
+          <span class="ml-2">↗</span>
+        </span>
+
+      </div>
+
+      <div class="mt-5 flex justify-center gap-5
+                  text-xs text-slate-500">
+        <span>✓ Windows 10/11</span>
+        <span>✓ No credit card</span>
+        <span>✓ 3 free sessions</span>
+      </div>
+    </div>
+
+
+    <!-- APP MOCKUP -->
+
+    <div class="relative max-w-6xl mx-auto mt-16">
+
+      <div class="absolute -inset-10 bg-indigo-500/10
+                  blur-3xl rounded-full">
+      </div>
+
+      <div class="relative rounded-2xl bg-slate-950
+                  p-2 sm:p-3 shadow-glow">
+
+        <div class="rounded-xl overflow-hidden
+                    bg-slate-900 border border-white/10">
+
+          <!-- Replace with real application screenshot -->
+          <div class="aspect-[16/9] flex items-center justify-center
+                      bg-gradient-to-br from-slate-900 to-slate-800">
+
+            <div class="text-center">
+              <div class="mx-auto w-16 h-16 rounded-2xl
+                          bg-indigo-500/20 flex items-center justify-center
+                          text-indigo-300 text-3xl">
+                ◉
+              </div>
+
+              <p class="mt-5 text-white font-semibold text-lg">
+                StashWhisper Desktop
+              </p>
+
+              <p class="mt-2 text-slate-400 text-sm">
+                Replace this area with your actual application screenshot
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden sm:flex absolute -left-8 bottom-12
+                  glass rounded-xl border border-slate-200
+                  shadow-soft px-4 py-3 items-center gap-3">
+
+        <div class="w-9 h-9 rounded-lg bg-green-100
+                    flex items-center justify-center text-green-600">
+          ✓
+        </div>
+
+        <div>
+          <p class="text-xs text-slate-500">Privacy status</p>
+          <p class="font-semibold text-sm">Transcribing locally</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================================= -->
+<!-- TRUST / VALUE -->
+<!-- ========================================================= -->
+
+<section class="py-14 border-y border-slate-100">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+      <div>
+        <div class="text-3xl font-black">100%</div>
+        <p class="mt-1 text-sm text-slate-500">Offline Transcription</p>
+      </div>
+
+      <div>
+        <div class="text-3xl font-black">0</div>
+        <p class="mt-1 text-sm text-slate-500">Recordings Uploaded</p>
+      </div>
+
+      <div>
+        <div class="text-3xl font-black">3</div>
+        <p class="mt-1 text-sm text-slate-500">Free Full Sessions</p>
+      </div>
+
+      <div>
+        <div class="text-3xl font-black">∞</div>
+        <p class="mt-1 text-sm text-slate-500">Pro Sessions</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================================= -->
+<!-- FEATURES -->
+<!-- ========================================================= -->
+
+<section id="features" class="py-24 sm:py-32">
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="max-w-2xl">
+      <span class="text-sm font-bold text-indigo-600 uppercase
+                   tracking-wider">
+        Built for focused learning
+      </span>
+
+      <h2 class="mt-3 text-3xl sm:text-5xl font-black tracking-tight">
+        Your lecture is transcribed on your computer.
+        Your notes stay with you.
+      </h2>
+
+      <p class="mt-5 text-lg text-slate-600 leading-relaxed">
+        StashWhisper transcribes locally with whisper.cpp, then gets out
+        of the way — one click packages your transcript into a prompt
+        you can hand to whichever AI assistant you already use.
+      </p>
+    </div>
+
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4
+                gap-5 mt-14">
+
+      <!-- Card -->
+
+      <article class="p-7 rounded-2xl border border-slate-200
+                       bg-white shadow-sm hover:shadow-soft
+                       transition">
+
+        <div class="w-12 h-12 rounded-xl bg-indigo-50
+                    flex items-center justify-center
+                    text-indigo-600 text-xl">
+          🔒
+        </div>
+
+        <h3 class="mt-6 font-bold text-lg">
+          100% Offline Transcription
+        </h3>
+
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Audio and transcripts are processed and stored on your local
+          computer with whisper.cpp. Nothing is uploaded automatically —
+          you decide what, if anything, to share afterwards.
+        </p>
+
+      </article>
+
+
+      <article class="p-7 rounded-2xl border border-slate-200
+                       bg-white shadow-sm hover:shadow-soft
+                       transition">
+
+        <div class="w-12 h-12 rounded-xl bg-indigo-50
+                    flex items-center justify-center
+                    text-indigo-600 text-xl">
+          🎙
+        </div>
+
+        <h3 class="mt-6 font-bold text-lg">
+          Real-Time Transcription
+        </h3>
+
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Follow your lecture as it happens with a live
+          transcription stream designed for long sessions.
+        </p>
+
+      </article>
+
+
+      <article class="p-7 rounded-2xl border border-slate-200
+                       bg-white shadow-sm hover:shadow-soft
+                       transition">
+
+        <div class="w-12 h-12 rounded-xl bg-indigo-50
+                    flex items-center justify-center
+                    text-indigo-600 text-xl">
+          ✦
+        </div>
+
+        <h3 class="mt-6 font-bold text-lg">
+          One-Click Smart Prompt Export
+        </h3>
+
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Export a ready-made academic prompt — your full transcript,
+          pre-formatted — as a .txt file in one click. Upload it to
+          ChatGPT, Claude, or Gemini to get structured notes back.
+        </p>
+
+      </article>
+
+
+      <article class="p-7 rounded-2xl border border-slate-200
+                       bg-white shadow-sm hover:shadow-soft
+                       transition">
+
+        <div class="w-12 h-12 rounded-xl bg-indigo-50
+                    flex items-center justify-center
+                    text-indigo-600 text-xl">
+          ⚡
+        </div>
+
+        <h3 class="mt-6 font-bold text-lg">
+          Bring Your Own AI
+        </h3>
+
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          StashWhisper builds the prompt; you choose the AI assistant.
+          Paste its response back into the app and it's saved right
+          alongside your transcript — no subscription, no lock-in.
+        </p>
+
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================================= -->
+<!-- SHOWCASE -->
+<!-- ========================================================= -->
+
+<section id="showcase" class="py-24 bg-slate-50">
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="text-center max-w-2xl mx-auto">
+
+      <span class="text-sm font-bold text-indigo-600 uppercase
+                   tracking-wider">
+        See it in action
+      </span>
+
+      <h2 class="mt-3 text-3xl sm:text-5xl font-black">
+        From lecture to AI-ready prompt.
+      </h2>
+
+      <p class="mt-5 text-slate-600 text-lg">
+        One workflow. Less manual formatting. More time to actually study.
+      </p>
+
+    </div>
+
+
+    <div class="mt-16 space-y-20">
+
+      <!-- SCREENSHOT 1 -->
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <div>
+          <span class="text-sm font-bold text-indigo-600">
+            01 — LIVE TRANSCRIPTION
+          </span>
+
+          <h3 class="mt-3 text-3xl font-bold">
+            Follow the lecture as it happens.
+          </h3>
+
+          <p class="mt-5 text-slate-600 leading-relaxed">
+            Start recording and StashWhisper continuously
+            processes the audio locally while the transcript
+            appears in the application.
+          </p>
+
+          <ul class="mt-6 space-y-3 text-sm text-slate-600">
+            <li>✓ Live transcript stream</li>
+            <li>✓ Session recording</li>
+            <li>✓ Timestamps and session organization</li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl bg-slate-900 p-2 shadow-soft">
+          <div class="aspect-[16/10] rounded-xl
+                      bg-slate-800 flex items-center justify-center
+                      text-slate-400">
+            <span>Live Stream & Transcription Screenshot</span>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- SCREENSHOT 2 -->
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <div class="order-2 lg:order-1 rounded-2xl
+                    bg-slate-900 p-2 shadow-soft">
+
+          <div class="aspect-[16/10] rounded-xl
+                      bg-slate-800 flex items-center justify-center
+                      text-slate-400">
+            <span>Smart Prompt Export & AI Study Notes Screenshot</span>
+          </div>
+
+        </div>
+
+        <div class="order-1 lg:order-2">
+
+          <span class="text-sm font-bold text-indigo-600">
+            02 — SMART PROMPT EXPORT
+          </span>
+
+          <h3 class="mt-3 text-3xl font-bold">
+            Raw transcript in. A ready-to-paste AI prompt out.
+          </h3>
+
+          <p class="mt-5 text-slate-600 leading-relaxed">
+            One click packages your full transcript into a clean,
+            structured prompt. Upload it to the AI assistant you already
+            use, then paste the response back into StashWhisper to keep
+            it saved with your session.
+          </p>
+
+          <div class="mt-6 grid sm:grid-cols-3 gap-3">
+
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <strong class="block">Raw Transcript</strong>
+              <span class="text-xs text-slate-500">What was said, verbatim</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <strong class="block">AI Study Notes</strong>
+              <span class="text-xs text-slate-500">Your AI's response, pasted in</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white border border-slate-200">
+              <strong class="block">Personal Notes</strong>
+              <span class="text-xs text-slate-500">Your own notes, autosaved</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- SCREENSHOT 3 -->
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <div>
+
+          <span class="text-sm font-bold text-indigo-600">
+            03 — SEARCH & LIBRARY
+          </span>
+
+          <h3 class="mt-3 text-3xl font-bold">
+            Keep every session organized.
+          </h3>
+
+          <p class="mt-5 text-slate-600 leading-relaxed">
+            Organize lectures and sessions by course,
+            search across your stored material and quickly
+            return to the information you need.
+          </p>
+
+        </div>
+
+        <div class="rounded-2xl bg-slate-900 p-2 shadow-soft">
+
+          <div class="aspect-[16/10] rounded-xl
+                      bg-slate-800 flex items-center justify-center
+                      text-slate-400">
+            <span>Search & Course Library Screenshot</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================================= -->
+<!-- PRIVACY CALLOUT -->
+<!-- ========================================================= -->
+
+<section class="py-24">
+
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+    <div class="relative overflow-hidden rounded-3xl
+                bg-slate-950 text-white p-8 sm:p-14">
+
+      <div class="absolute -right-20 -top-20 w-72 h-72
+                  bg-indigo-500/20 blur-3xl rounded-full">
+      </div>
+
+      <div class="relative max-w-3xl">
+
+        <div class="text-indigo-300 text-3xl">🔐</div>
+
+        <h2 class="mt-5 text-3xl sm:text-4xl font-black">
+          Your lecture is your data.
+        </h2>
+
+        <p class="mt-5 text-slate-300 text-lg leading-relaxed">
+          Recording and transcription are 100% local: your audio and
+          transcripts are processed and stored on your computer with
+          whisper.cpp, and StashWhisper never uploads them automatically.
+          If you choose to generate AI study notes, you decide which AI
+          service to use and what to share with it — that step happens
+          outside the app, on your terms.
+        </p>
+
+        <a href="privacy.html"
+           class="inline-flex mt-7 text-white font-semibold
+                  border-b border-indigo-400 pb-1">
+          Read our Privacy Policy →
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================================= -->
+<!-- PRICING -->
+<!-- ========================================================= -->
+
+<section id="pricing" class="py-24 bg-slate-50">
+
+  <div class="max-w-5xl mx-auto px-5 sm:px-8">
+
+    <div class="text-center max-w-2xl mx-auto">
+
+      <span class="text-sm font-bold text-indigo-600 uppercase
+                   tracking-wider">
+        Try before you buy
+      </span>
+
+      <h2 class="mt-3 text-3xl sm:text-5xl font-black">
+        Start free. Upgrade when you're ready.
+      </h2>
+
+      <p class="mt-5 text-slate-600">
+        Experience the complete workflow before purchasing a Pro license.
+      </p>
+
+    </div>
+
+
+    <div class="mt-14 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+
+      <!-- FREE -->
+
+      <div class="bg-white rounded-3xl border border-slate-200
+                  p-8 sm:p-10">
+
+        <h3 class="text-xl font-bold">Free</h3>
+
+        <div class="mt-5">
+          <span class="text-5xl font-black">$0</span>
+          <span class="text-slate-500"> / trial</span>
+        </div>
+
+        <p class="mt-4 text-slate-600">
+          Try the full workflow before committing.
+        </p>
+
+        <ul class="mt-8 space-y-4 text-sm">
+
+          <li>✓ 3 full sessions</li>
+          <li>✓ Live transcription</li>
+          <li>✓ 100% local processing</li>
+          <li>✓ Smart prompt export</li>
+          <li>✓ No credit card required</li>
+
+        </ul>
+
+        <!-- Installing (free or Pro) only happens through the Microsoft
+             Store now -- see the hero CTA note above. -->
+        <span
+           class="mt-9 block text-center py-3.5
+                  rounded-xl border border-slate-300
+                  font-semibold text-slate-400 cursor-not-allowed"
+           title="Microsoft Store listing is coming soon">
+          Get it on Microsoft Store
+        </span>
+
+      </div>
+
+
+      <!-- PRO -->
+
+      <div class="relative bg-slate-950 text-white
+                  rounded-3xl p-8 sm:p-10 shadow-glow">
+
+        <div class="absolute top-5 right-5 px-3 py-1
+                    rounded-full bg-indigo-500 text-xs
+                    font-bold">
+          PRO
+        </div>
+
+        <h3 class="text-xl font-bold">Pro Lifetime</h3>
+
+        <div class="mt-5">
+          <span class="text-5xl font-black">$19.99</span>
+          <span class="text-slate-400"> one-time</span>
+        </div>
+
+        <p class="mt-4 text-slate-300">
+          One purchase. Unlimited use under the Pro license. No monthly
+          subscription.
+        </p>
+
+        <ul class="mt-8 space-y-4 text-sm text-slate-200">
+
+          <li>✓ Unlimited recording sessions</li>
+          <li>✓ Unlimited smart prompt exports</li>
+          <li>✓ Full local processing</li>
+          <li>✓ Course & session management</li>
+          <li>✓ Advanced search</li>
+
+        </ul>
+
+        <!-- Purchasing isn't live yet -- keep in sync with the in-app
+             paywall (lib/main.dart), which currently shows a disabled
+             "Pro -- Coming Soon" button for the same reason. Once
+             StashWhisper is Store-distributed, this purchase is expected
+             to run through Microsoft Store commerce (in-app purchase /
+             add-on), not a custom checkout -- see Terms of Service and
+             Refund Policy. Flip this back to a real "Get Pro" CTA
+             (linking into the Store product page) once that ships. -->
+        <span
+           class="mt-9 block text-center py-3.5
+                  rounded-xl bg-white/10 text-white/60
+                  font-bold cursor-not-allowed">
+          Pro — Coming Soon
+        </span>
+
+      </div>
+
+    </div>
+
+    <p class="text-center mt-8 text-xs text-slate-500">
+      StashWhisper is distributed exclusively through the Microsoft
+      Store. Pro purchases are not yet available there. The $19.99
+      lifetime price shown here matches the price displayed inside the
+      app and will be charged through Microsoft Store at checkout.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ========================================================= -->
+<!-- FAQ -->
+<!-- ========================================================= -->
+
+<section id="faq" class="py-24">
+
+  <div class="max-w-3xl mx-auto px-5 sm:px-8">
+
+    <div class="text-center">
+      <span class="text-sm font-bold text-indigo-600 uppercase
+                   tracking-wider">
+        FAQ
+      </span>
+
+      <h2 class="mt-3 text-3xl sm:text-4xl font-black">
+        Questions, answered.
+      </h2>
+    </div>
+
+
+    <div class="mt-12 space-y-4">
+
+      <details class="group border border-slate-200 rounded-xl p-5">
+        <summary class="cursor-pointer font-semibold">
+          Where can I download StashWhisper?
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Exclusively through the Microsoft Store — we don't offer a
+          direct .exe download. Installing, updating, and (once
+          available) purchasing Pro all happen through the Store, which
+          also handles license verification and Store-based refunds.
+        </p>
+      </details>
+
+      <details class="group border border-slate-200 rounded-xl p-5">
+        <summary class="cursor-pointer font-semibold">
+          Is my audio uploaded to any server?
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          No. Recording and transcription are 100% local — your audio
+          files and transcripts are processed and stored on your
+          computer with whisper.cpp and are never uploaded automatically.
+        </p>
+      </details>
+
+      <details class="group border border-slate-200 rounded-xl p-5">
+        <summary class="cursor-pointer font-semibold">
+          How do AI Study Notes actually work?
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          StashWhisper does not run its own note-generating AI. Instead,
+          one click exports a ready-made prompt — your transcript,
+          pre-formatted — as a .txt file. You upload that file to the AI
+          chat service you already use (ChatGPT, Claude, Gemini, or any
+          other), copy its response, and paste it back into StashWhisper's
+          "AI Study Notes" tab to save it with your session.
+        </p>
+      </details>
+
+      <details class="group border border-slate-200 rounded-xl p-5">
+        <summary class="cursor-pointer font-semibold">
+          What are the system requirements?
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Windows 10 or 11 with at least 8 GB of RAM. StashWhisper checks
+          available memory on launch and during setup — below roughly
+          7.5 GB of usable RAM, the app can still be installed, but live
+          transcription stays disabled until you're on a machine that
+          meets the requirement.
+        </p>
+      </details>
+
+      <details class="group border border-slate-200 rounded-xl p-5">
+        <summary class="cursor-pointer font-semibold">
+          How does the free trial work?
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          You can use the full StashWhisper workflow for
+          3 complete sessions before purchasing a Pro license.
+        </p>
+      </details>
+
+      <details class="group border border-slate-200 rounded-xl p-5">
+        <summary class="cursor-pointer font-semibold">
+          Can I use StashWhisper without an internet connection?
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Yes, for recording and transcription — both run entirely
+          offline. An internet connection is only needed for the
+          optional step of uploading an exported prompt to an AI chat
+          service to generate study notes.
+        </p>
+      </details>
+
+      <details class="group border border-slate-200 rounded-xl p-5">
+        <summary class="cursor-pointer font-semibold">
+          How do I activate my Pro license?
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Pro purchases are not yet available — the in-app "Pro" button
+          currently shows "Coming Soon." Once purchasing goes live, it
+          will run through the Microsoft Store (the same account you
+          used to install StashWhisper); see our Terms of Service and
+          Refund Policy for how Store purchases and refunds work.
+        </p>
+      </details>
+
+      <details class="group border border-slate-200 rounded-xl p-5">
+        <summary class="cursor-pointer font-semibold">
+          How can I contact support?
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+          Email us at
+          <a href="mailto:support@stashwhisper.com"
+             class="text-indigo-600 font-semibold">
+            support@stashwhisper.com
+          </a>.
+        </p>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================================= -->
+<!-- FINAL CTA -->
+<!-- ========================================================= -->
+
+<section id="download" class="py-24 bg-indigo-600">
+
+  <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center text-white">
+
+    <h2 class="text-4xl sm:text-5xl font-black">
+      Stop typing up your lectures by hand.
+    </h2>
+
+    <p class="mt-5 text-indigo-100 text-lg">
+      Record once. Transcribe locally. Export a smart prompt for your AI.
+    </p>
+
+    <div class="mt-9 flex justify-center">
+
+      <!-- TODO(launch): swap for the real Store product page link once
+           the listing is approved, matching the hero CTA above. -->
+      <span
+         class="px-7 py-3.5 rounded-xl bg-white
+                text-slate-950 font-bold cursor-not-allowed opacity-90"
+         title="Microsoft Store listing is coming soon">
+        Get it on Microsoft Store
+      </span>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+
+<footer class="bg-slate-950 text-slate-400">
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-14">
+
+    <div class="grid md:grid-cols-4 gap-10">
+
+      <div class="md:col-span-2">
+
+        <div class="flex items-center gap-2 text-white">
+
+          <div class="w-9 h-9 rounded-xl
+                      bg-gradient-to-br from-indigo-500
+                      to-violet-600 flex items-center
+                      justify-center font-bold">
+            S
+          </div>
+
+          <span class="font-bold text-lg">
+            StashWhisper
+          </span>
+
+        </div>
+
+        <p class="mt-5 max-w-md text-sm leading-relaxed">
+          Local-first lecture recording and transcription, with a
+          one-click bridge to the AI assistant you already use.
+        </p>
+
+        <a href="mailto:support@stashwhisper.com"
+           class="inline-block mt-5 text-sm text-white">
+          support@stashwhisper.com
+        </a>
+
+      </div>
+
+
+      <div>
+        <h4 class="text-white font-semibold">Product</h4>
+
+        <div class="mt-4 space-y-3 text-sm">
+          <a href="#features" class="block hover:text-white">Features</a>
+          <a href="#pricing" class="block hover:text-white">Pricing</a>
+          <a href="#faq" class="block hover:text-white">FAQ</a>
+        </div>
+      </div>
+
+
+      <div>
+        <h4 class="text-white font-semibold">Legal</h4>
+
+        <div class="mt-4 space-y-3 text-sm">
+          <a href="privacy.html"
+             class="block hover:text-white">
+            Privacy Policy
+          </a>
+
+          <a href="terms.html"
+             class="block hover:text-white">
+            Terms of Service
+          </a>
+
+          <a href="refund.html"
+             class="block hover:text-white">
+            Refund Policy
+          </a>
+
+          <a href="faq.html"
+             class="block hover:text-white">
+            FAQ & Support
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="mt-12 pt-7 border-t border-white/10
+                flex flex-col sm:flex-row
+                justify-between gap-3 text-xs">
+
+      <p>
+        © 2026 Fırat Akol (StashWhisper). All rights reserved.
+      </p>
+
+      <p>
+        Built for private, local-first productivity.
+      </p>
+
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — StashWhisper</title>
+  <meta name="description" content="How StashWhisper handles your recordings, transcripts, free-trial device identifier, and the optional third-party AI prompt export.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .glass { background: rgba(255,255,255,.75); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+
+<header class="fixed top-0 left-0 right-0 z-50">
+  <nav class="glass border-b border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white font-bold">S</div>
+        <span class="font-bold text-lg tracking-tight">StashWhisper</span>
+      </a>
+      <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-slate-950">← Back to home</a>
+    </div>
+  </nav>
+</header>
+
+<main class="max-w-3xl mx-auto px-5 sm:px-8 pt-32 pb-24">
+
+  <h1 class="text-4xl font-black tracking-tight">Privacy Policy</h1>
+  <p class="mt-2 text-sm text-slate-500">Effective Date: September 27, 2026</p>
+
+  <p class="mt-8 text-slate-700 leading-relaxed">
+    StashWhisper ("StashWhisper", "we", "us", or "our") is a local-first
+    desktop application designed to record audio, generate transcripts,
+    and help you turn those transcripts into AI-assisted study notes.
+    This Privacy Policy explains what information StashWhisper processes
+    and how that information is handled.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">1. Local-First Processing</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    StashWhisper is designed to process and store your core application
+    data locally on your Windows computer. This includes your audio
+    recordings, transcripts, course and session information, and
+    application settings.
+  </p>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    Audio recording and speech-to-text transcription are performed
+    entirely on your device using whisper.cpp, a locally installed
+    speech-recognition engine. Your audio recordings and transcripts are
+    never uploaded to a StashWhisper server — we do not operate one for
+    transcription.
+  </p>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    <strong>StashWhisper does not include a built-in AI model that
+    writes study notes for you.</strong> If you want AI-generated study
+    notes, you use the optional Smart Prompt Export feature described in
+    Section 3 below, which relies on a third-party AI service of your
+    choosing.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">2. No Automatic Cloud Uploads</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    StashWhisper does not operate a cloud-based audio transcription
+    service, and it does not automatically transmit your audio
+    recordings or transcripts anywhere. Your locally stored files remain
+    on your computer unless you choose to copy, export, synchronize, or
+    otherwise share them yourself — including through the feature
+    described in the next section.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">3. AI Study Notes (Smart Prompt Export)</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    StashWhisper includes a one-click "Export AI Prompt" feature. When
+    you use it, the application writes a plain-text (.txt) file to a
+    location you choose, containing a formatted prompt built from your
+    transcript.
+  </p>
+  <p class="mt-3 text-slate-700 leading-relaxed font-semibold">
+    If you choose to upload that file to a third-party AI chat service —
+    such as ChatGPT, Claude, Gemini, or any other service you pick — that
+    upload is an action you take yourself, outside the StashWhisper
+    application, at your own initiative and using your own account with
+    that service.
+  </p>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    StashWhisper has no integration with, and does not automatically
+    connect to, transmit data to, or authenticate with, any AI chat
+    provider. Once you upload the exported file to a third-party
+    service, that service's own privacy policy and terms of service
+    govern how it handles your transcript. We encourage you to review
+    those policies before uploading any content you consider sensitive.
+    When you copy the AI's response back into StashWhisper's "AI Study
+    Notes" tab, that step is a local clipboard paste and does not involve
+    any network transmission by StashWhisper.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">4. Information Used for the Free Trial</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    To keep track of your 3-session free trial and make it harder to
+    reset by deleting just one copy of the application's local data,
+    StashWhisper stores a small amount of information locally on your
+    computer:
+  </p>
+  <ul class="mt-3 space-y-2 text-slate-700 list-disc pl-6">
+    <li>A device identifier: a one-way SHA-256 cryptographic hash of a
+      hardware identifier already exposed by Windows (the system's
+      product UUID), or, if that is not available, a hash of your
+      computer's hostname. We store only this hash — not the raw
+      hardware identifier itself.</li>
+    <li>A count of completed free-trial sessions.</li>
+    <li>A Pro-unlock flag once you own a Pro license.</li>
+    <li>A timestamp used only to detect obvious system-clock manipulation
+      intended to reset the trial.</li>
+  </ul>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    This information is stored in two local places that are kept in
+    sync: your local application data folder
+    (<code class="text-sm bg-slate-100 px-1 rounded">%APPDATA%\StashWhisper</code>)
+    and the Windows Registry, under
+    <code class="text-sm bg-slate-100 px-1 rounded">HKEY_CURRENT_USER\Software\StashWhisper</code>.
+    We store it in both places, rather than hiding it, because the
+    purpose is limited and disclosed here — not to conceal it from you.
+  </p>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    Because StashWhisper is distributed through the Microsoft Store, this
+    data is stored inside the Store's per-app package data area. Windows
+    normally clears that area when you uninstall the app, so uninstalling
+    and reinstalling StashWhisper can reset your free-session count — this
+    protection is mainly effective while the app stays installed, not
+    across an uninstall. Your Pro license, if you've purchased one, is
+    <em>not</em> affected by this: it is verified separately through your
+    Microsoft account and the Microsoft Store, described in Section 5
+    below, and survives uninstalling and reinstalling the app.
+  </p>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    This information never leaves your computer: StashWhisper does not
+    transmit it, or any part of it, to us or to any third party over a
+    network. It does not contain your audio recordings, transcripts, or
+    AI-generated notes, and it is not designed to directly identify you
+    as a person — only to recognize that the same Windows installation
+    has previously used the free trial.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">5. Payment and License Verification (Microsoft Store)</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    StashWhisper is distributed exclusively through the Microsoft Store,
+    and a Pro license purchase is processed entirely by Microsoft as
+    part of Microsoft Store commerce. We do not receive, process, or
+    store your payment card details, billing address, or other checkout
+    information — Microsoft handles billing directly with you.
+  </p>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    Microsoft also determines and verifies your Pro license entitlement
+    through its own Store licensing system. StashWhisper checks that
+    entitlement locally through the Store's own API rather than through
+    a separately issued license key that we generate or see. This is
+    separate from, and does not replace, the local free-trial
+    information described in Section 4 above. For how Microsoft handles
+    the personal and payment data involved in a Store purchase, see
+    Microsoft's own Privacy Statement, which governs that transaction —
+    not this Privacy Policy.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">6. Data Stored on Your Computer</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    Depending on how you use StashWhisper, your computer may contain
+    recorded audio files, transcript files, AI study notes you've pasted
+    in, course/session metadata, application settings, and trial or
+    license-related information as described above. You are responsible
+    for maintaining appropriate backups and protecting access to your
+    computer and local files.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">7. Internet Connectivity</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    Core StashWhisper functionality — recording and transcription — is
+    designed to work without an internet connection. Internet
+    connectivity is required for installing or updating the app through
+    the Microsoft Store, for purchasing or verifying a Pro license
+    (Section 5), and, if you choose to use it, for uploading an exported
+    prompt to a third-party AI service (Section 3).
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">8. Third-Party Services</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    Sections 3 and 5 above describe the two cases where StashWhisper is
+    designed to involve a third party — an AI chat service you choose,
+    and Microsoft for Store purchases and license verification.
+    Separately, if you independently use other applications, cloud
+    storage, or synchronization services to copy or share your
+    StashWhisper files, those services operate under their own privacy
+    policies, and we are not responsible for their practices.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">9. Children's and Students' Data</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    StashWhisper may be used by students and other individuals for
+    educational purposes. Because StashWhisper is designed for local
+    processing, users generally retain direct control over the
+    recordings and notes created by the application. Users should comply
+    with applicable laws, school policies, recording-consent
+    requirements, and any other rules governing the recording of
+    lectures, meetings, classes, or conversations.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">10. Security</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    We design StashWhisper to minimize unnecessary transmission of
+    personal content by keeping core processing local. However, no
+    software or computer system can be guaranteed to be completely
+    secure. You are responsible for maintaining reasonable security
+    practices on your device, including operating-system updates,
+    account security, disk protection, and access controls.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">11. Changes to This Privacy Policy</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    We may update this Privacy Policy from time to time. If material
+    changes are made, the updated version will be published on this page
+    with a revised effective date.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">12. Contact</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    Questions about this Privacy Policy:
+    <a href="mailto:support@stashwhisper.com" class="text-indigo-600 font-semibold">support@stashwhisper.com</a>
+  </p>
+
+</main>
+
+<footer class="bg-slate-950 text-slate-400">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row justify-between gap-3 text-xs">
+    <p>© 2026 Fırat Akol (StashWhisper). All rights reserved.</p>
+    <div class="flex gap-5">
+      <a href="privacy.html" class="hover:text-white">Privacy</a>
+      <a href="terms.html" class="hover:text-white">Terms</a>
+      <a href="refund.html" class="hover:text-white">Refunds</a>
+      <a href="faq.html" class="hover:text-white">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
