@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
   <title>StashWhisper — Private, Offline Lecture Transcription for Windows</title>
   <meta name="description"
@@ -72,11 +74,7 @@
                 flex items-center justify-between">
 
       <a href="#" class="flex items-center gap-2">
-        <div class="w-9 h-9 rounded-xl
-                    bg-gradient-to-br from-indigo-500 to-violet-600
-                    flex items-center justify-center text-white font-bold">
-          S
-        </div>
+        <img src="images/logo.png" alt="" width="36" height="36" class="w-9 h-9 rounded-xl">
         <span class="font-bold text-lg tracking-tight">
           StashWhisper
         </span>
@@ -90,7 +88,7 @@
         <a href="#faq" class="hover:text-slate-950">FAQ</a>
       </div>
 
-      <a href="#pricing"
+      <a href="https://apps.microsoft.com/detail/9nrwbh3l7wwh" target="_blank" rel="noopener noreferrer"
          class="hidden sm:inline-flex px-4 py-2 rounded-lg
                 bg-slate-950 text-white text-sm font-semibold
                 hover:bg-slate-800 transition">
@@ -143,20 +141,15 @@
         <!-- StashWhisper is distributed exclusively through the Microsoft
              Store -- no direct .exe download is offered. Store commerce
              (Windows.Services.Store) also handles Pro purchase and
-             license entitlement once that ships; see README/Terms.
-             TODO(launch): swap this placeholder for the real
-             ms-windows-store://pdp/?ProductId=... link once the listing
-             is approved, and drop cursor-not-allowed / the "Coming Soon"
-             label at the same time. -->
-        <span
+             license entitlement once that ships; see README/Terms. -->
+        <a href="https://apps.microsoft.com/detail/9nrwbh3l7wwh" target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center justify-center
                   px-7 py-3.5 rounded-xl
                   bg-slate-950 text-white font-semibold
-                  shadow-lg cursor-not-allowed opacity-90"
-           title="Microsoft Store listing is coming soon">
+                  shadow-lg hover:bg-slate-800 transition">
           Get it on Microsoft Store
           <span class="ml-2">↗</span>
-        </span>
+        </a>
 
       </div>
 
@@ -183,27 +176,8 @@
         <div class="rounded-xl overflow-hidden
                     bg-slate-900 border border-white/10">
 
-          <!-- Replace with real application screenshot -->
-          <div class="aspect-[16/9] flex items-center justify-center
-                      bg-gradient-to-br from-slate-900 to-slate-800">
-
-            <div class="text-center">
-              <div class="mx-auto w-16 h-16 rounded-2xl
-                          bg-indigo-500/20 flex items-center justify-center
-                          text-indigo-300 text-3xl">
-                ◉
-              </div>
-
-              <p class="mt-5 text-white font-semibold text-lg">
-                StashWhisper Desktop
-              </p>
-
-              <p class="mt-2 text-slate-400 text-sm">
-                Replace this area with your actual application screenshot
-              </p>
-            </div>
-
-          </div>
+                    <img src="images/hero-ai-notes.png" alt="StashWhisper showing AI study notes next to a lecture transcript" width="1920" height="980" fetchpriority="high"
+               class="block w-full h-auto rounded-xl">
         </div>
       </div>
 
@@ -444,11 +418,8 @@
         </div>
 
         <div class="rounded-2xl bg-slate-900 p-2 shadow-soft">
-          <div class="aspect-[16/10] rounded-xl
-                      bg-slate-800 flex items-center justify-center
-                      text-slate-400">
-            <span>Live Stream & Transcription Screenshot</span>
-          </div>
+          <img src="images/showcase-live-transcription.png" alt="Live lecture transcript in StashWhisper with the course list on the left" width="1920" height="979" loading="lazy" decoding="async"
+               class="block w-full h-auto rounded-xl">
         </div>
 
       </div>
@@ -461,11 +432,8 @@
         <div class="order-2 lg:order-1 rounded-2xl
                     bg-slate-900 p-2 shadow-soft">
 
-          <div class="aspect-[16/10] rounded-xl
-                      bg-slate-800 flex items-center justify-center
-                      text-slate-400">
-            <span>Smart Prompt Export & AI Study Notes Screenshot</span>
-          </div>
+          <img src="images/showcase-export.png" alt="StashWhisper export menu with Markdown, NotebookLM/Gemini text, JSON and prompt-ready clipboard options" width="1920" height="984" loading="lazy" decoding="async"
+               class="block w-full h-auto rounded-xl">
 
         </div>
 
@@ -533,11 +501,8 @@
 
         <div class="rounded-2xl bg-slate-900 p-2 shadow-soft">
 
-          <div class="aspect-[16/10] rounded-xl
-                      bg-slate-800 flex items-center justify-center
-                      text-slate-400">
-            <span>Search & Course Library Screenshot</span>
-          </div>
+          <img src="images/showcase-library.png" alt="StashWhisper course library with search, course list and saved sessions" width="1280" height="800" loading="lazy" decoding="async"
+               class="block w-full h-auto rounded-xl">
 
         </div>
 
@@ -648,13 +613,13 @@
 
         <!-- Installing (free or Pro) only happens through the Microsoft
              Store now -- see the hero CTA note above. -->
-        <span
+        <a href="https://apps.microsoft.com/detail/9nrwbh3l7wwh" target="_blank" rel="noopener noreferrer"
            class="mt-9 block text-center py-3.5
                   rounded-xl border border-slate-300
-                  font-semibold text-slate-400 cursor-not-allowed"
-           title="Microsoft Store listing is coming soon">
+                  font-semibold text-slate-900
+                  hover:bg-slate-50 transition">
           Get it on Microsoft Store
-        </span>
+        </a>
 
       </div>
 
@@ -692,20 +657,14 @@
 
         </ul>
 
-        <!-- Purchasing isn't live yet -- keep in sync with the in-app
-             paywall (lib/main.dart), which currently shows a disabled
-             "Pro -- Coming Soon" button for the same reason. Once
-             StashWhisper is Store-distributed, this purchase is expected
-             to run through Microsoft Store commerce (in-app purchase /
-             add-on), not a custom checkout -- see Terms of Service and
-             Refund Policy. Flip this back to a real "Get Pro" CTA
-             (linking into the Store product page) once that ships. -->
-        <span
+        <!-- Pro is bought inside the app (Microsoft Store in-app purchase);
+             this button just sends people to the Store listing. -->
+        <a href="https://apps.microsoft.com/detail/9nrwbh3l7wwh" target="_blank" rel="noopener noreferrer"
            class="mt-9 block text-center py-3.5
-                  rounded-xl bg-white/10 text-white/60
-                  font-bold cursor-not-allowed">
-          Pro — Coming Soon
-        </span>
+                  rounded-xl bg-white text-slate-950
+                  font-bold hover:bg-slate-100 transition">
+          Get it on Microsoft Store
+        </a>
 
       </div>
 
@@ -713,9 +672,9 @@
 
     <p class="text-center mt-8 text-xs text-slate-500">
       StashWhisper is distributed exclusively through the Microsoft
-      Store. Pro purchases are not yet available there. The $19.99
+      Store. Pro is a one-time in-app purchase. The $19.99
       lifetime price shown here matches the price displayed inside the
-      app and will be charged through Microsoft Store at checkout.
+      app and is charged through Microsoft Store at checkout.
     </p>
 
   </div>
@@ -821,10 +780,10 @@
           How do I activate my Pro license?
         </summary>
         <p class="mt-3 text-slate-600 text-sm leading-relaxed">
-          Pro purchases are not yet available — the in-app "Pro" button
-          currently shows "Coming Soon." Once purchasing goes live, it
-          will run through the Microsoft Store (the same account you
-          used to install StashWhisper); see our Terms of Service and
+          Click "Upgrade to Pro" in the app and choose "Buy Pro." The
+          purchase runs through the Microsoft Store (the same account you
+          used to install StashWhisper), and your license is tied to that
+          account, so it is restored automatically if you reinstall; see our Terms of Service and
           Refund Policy for how Store purchases and refunds work.
         </p>
       </details>
@@ -866,14 +825,11 @@
 
     <div class="mt-9 flex justify-center">
 
-      <!-- TODO(launch): swap for the real Store product page link once
-           the listing is approved, matching the hero CTA above. -->
-      <span
-         class="px-7 py-3.5 rounded-xl bg-white
-                text-slate-950 font-bold cursor-not-allowed opacity-90"
-         title="Microsoft Store listing is coming soon">
+      <a href="https://apps.microsoft.com/detail/9nrwbh3l7wwh" target="_blank" rel="noopener noreferrer"
+         class="inline-block px-7 py-3.5 rounded-xl bg-white
+                text-slate-950 font-bold hover:bg-slate-100 transition">
         Get it on Microsoft Store
-      </span>
+      </a>
 
     </div>
 
