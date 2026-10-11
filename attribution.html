@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=2">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Open-Source Attributions — StashWhisper</title>
+  <meta name="description" content="Open-source software and machine-learning models used in StashWhisper (whisper.cpp, OpenAI Whisper, ONNX Runtime and more), with their licenses and copyright holders.">
+  <link rel="canonical" href="https://stashwhisper.com/attribution.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="StashWhisper">
+  <meta name="application-name" content="StashWhisper">
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp, Telegram, Discord) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StashWhisper">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://stashwhisper.com/attribution.html">
+  <meta property="og:title" content="Open-Source Attributions — StashWhisper">
+  <meta property="og:description" content="Open-source software and machine-learning models used in StashWhisper (whisper.cpp, OpenAI Whisper, ONNX Runtime and more), with their licenses and copyright holders.">
+  <meta property="og:image" content="https://stashwhisper.com/images/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="StashWhisper: record lectures, transcribe offline, get study notes">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Open-Source Attributions — StashWhisper">
+  <meta name="twitter:description" content="Open-source software and machine-learning models used in StashWhisper (whisper.cpp, OpenAI Whisper, ONNX Runtime and more), with their licenses and copyright holders.">
+  <meta name="twitter:image" content="https://stashwhisper.com/images/og-image.png">
+  <meta name="twitter:image:alt" content="StashWhisper: record lectures, transcribe offline, get study notes">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .glass { background: rgba(255,255,255,.75); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+
+<header class="fixed top-0 left-0 right-0 z-50">
+  <nav class="glass border-b border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="images/logo.png?v=2" alt="" width="36" height="36" class="w-9 h-9 rounded-xl">
+        <span class="font-bold text-lg tracking-tight">StashWhisper</span>
+      </a>
+      <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-slate-950">← Back to home</a>
+    </div>
+  </nav>
+</header>
+
+<main class="max-w-4xl mx-auto px-5 sm:px-8 pt-32 pb-24">
+
+  <h1 class="text-4xl font-black tracking-tight">Open-Source Attributions</h1>
+  <p class="mt-2 text-sm text-slate-500">StashWhisper v1.0.2 · Updated October 11, 2026</p>
+
+  <p class="mt-8 text-slate-700 leading-relaxed">
+    StashWhisper is built on the open-source software and machine-learning
+    models listed below. Each component remains the property of its
+    copyright holders and is used under the license shown. The complete
+    license texts ship with the app (<code>THIRD_PARTY_LICENSES.txt</code>,
+    <code>ATTRIBUTION.md</code> in the installation folder) and are shown
+    inside StashWhisper under <strong>Open-source licenses</strong>.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">Native components and models</h2>
+  <div class="mt-4 overflow-x-auto">
+    <table class="w-full text-sm text-left">
+      <thead class="text-slate-500">
+        <tr>
+          <th class="py-2 pr-4 font-semibold">Component</th>
+          <th class="py-2 pr-4 font-semibold">Used for</th>
+          <th class="py-2 pr-4 font-semibold">License</th>
+          <th class="py-2 font-semibold">Copyright</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-slate-200 align-top">
+          <td class="py-3 pr-4 font-semibold"><a href="https://github.com/ggml-org/whisper.cpp" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">whisper.cpp / ggml</a></td>
+          <td class="py-3 pr-4 text-slate-700">Speech-to-text engine (incl. optional Vulkan GPU backend)</td>
+          <td class="py-3 pr-4 text-slate-700">MIT</td>
+          <td class="py-3 text-slate-500">© 2023-2026 The ggml authors; llamafile sgemm kernels © 2024 Mozilla Foundation (MIT)</td>
+        </tr>
+        <tr class="border-t border-slate-200 align-top">
+          <td class="py-3 pr-4 font-semibold"><a href="https://github.com/openai/whisper" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">OpenAI Whisper</a></td>
+          <td class="py-3 pr-4 text-slate-700">Speech recognition models (small, large-v3-turbo)</td>
+          <td class="py-3 pr-4 text-slate-700">MIT</td>
+          <td class="py-3 text-slate-500">© 2022 OpenAI</td>
+        </tr>
+        <tr class="border-t border-slate-200 align-top">
+          <td class="py-3 pr-4 font-semibold"><a href="https://github.com/KhronosGroup/Vulkan-Headers" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">Vulkan-Headers</a></td>
+          <td class="py-3 pr-4 text-slate-700">Vulkan API headers in the optional GPU backend</td>
+          <td class="py-3 pr-4 text-slate-700">Apache-2.0 OR MIT (used under MIT)</td>
+          <td class="py-3 text-slate-500">© The Khronos Group Inc.</td>
+        </tr>
+        <tr class="border-t border-slate-200 align-top">
+          <td class="py-3 pr-4 font-semibold"><a href="https://github.com/microsoft/onnxruntime" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">ONNX Runtime</a></td>
+          <td class="py-3 pr-4 text-slate-700">Neural network runtime</td>
+          <td class="py-3 pr-4 text-slate-700">MIT (+ third-party notices)</td>
+          <td class="py-3 text-slate-500">© Microsoft Corporation</td>
+        </tr>
+        <tr class="border-t border-slate-200 align-top">
+          <td class="py-3 pr-4 font-semibold"><a href="https://github.com/snakers4/silero-vad" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">Silero VAD</a></td>
+          <td class="py-3 pr-4 text-slate-700">Voice activity detection model</td>
+          <td class="py-3 pr-4 text-slate-700">MIT</td>
+          <td class="py-3 text-slate-500">© 2020-present Silero Team</td>
+        </tr>
+        <tr class="border-t border-slate-200 align-top">
+          <td class="py-3 pr-4 font-semibold"><a href="https://github.com/nlohmann/json" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">JSON for Modern C++</a></td>
+          <td class="py-3 pr-4 text-slate-700">JSON parsing in native modules</td>
+          <td class="py-3 pr-4 text-slate-700">MIT (with embedded MIT, CC0-1.0, Apache-2.0 parts)</td>
+          <td class="py-3 text-slate-500">© 2013-2022 Niels Lohmann and contributors</td>
+        </tr>
+        <tr class="border-t border-slate-200 align-top">
+          <td class="py-3 pr-4 font-semibold"><a href="https://sqlite.org" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">SQLite</a></td>
+          <td class="py-3 pr-4 text-slate-700">Local database engine</td>
+          <td class="py-3 pr-4 text-slate-700">Public domain</td>
+          <td class="py-3 text-slate-500">—</td>
+        </tr>
+        <tr class="border-t border-slate-200 align-top">
+          <td class="py-3 pr-4 font-semibold"><a href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">llama.cpp / ggml</a></td>
+          <td class="py-3 pr-4 text-slate-700">On-device language/embedding model engine</td>
+          <td class="py-3 pr-4 text-slate-700">MIT</td>
+          <td class="py-3 text-slate-500">© 2023-2026 The ggml authors</td>
+        </tr>
+        <tr class="border-t border-slate-200 align-top">
+          <td class="py-3 pr-4 font-semibold"><a href="https://ai.google.dev/gemma" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">EmbeddingGemma</a></td>
+          <td class="py-3 pr-4 text-slate-700">Text embedding model</td>
+          <td class="py-3 pr-4 text-slate-700">Gemma Terms of Use</td>
+          <td class="py-3 text-slate-500">Google</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="mt-10 text-2xl font-bold">Flutter, Dart and packages</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    StashWhisper is built with the <a href="https://flutter.dev" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">Flutter</a>
+    framework and the <a href="https://dart.dev" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline">Dart</a>
+    SDK (BSD-3-Clause, © The Flutter Authors / The Dart project authors) and
+    these packages with their dependencies: cupertino_icons, crypto, ffi,
+    file_picker, flutter_markdown_plus, flutter_onnxruntime, markdown,
+    ms_store_trial, path, record and shared_preferences. Their full license
+    texts are listed in the app's Open-source licenses screen.
+  </p>
+
+  <h2 class="mt-10 text-2xl font-bold">Not distributed with StashWhisper</h2>
+  <p class="mt-3 text-slate-700 leading-relaxed">
+    The Vulkan loader (vulkan-1.dll) is part of your graphics driver. The
+    Microsoft Visual C++ runtime is redistributed under Microsoft's
+    redistribution terms. Microsoft Copilot, opened in your browser by
+    "Send to Copilot", is a separate Microsoft service and no part of it is
+    included in StashWhisper.
+  </p>
+
+  <p class="mt-10 text-sm text-slate-500">
+    Questions about licensing: <a href="mailto:support@stashwhisper.com" class="text-indigo-600 hover:underline">support@stashwhisper.com</a>
+  </p>
+
+</main>
+
+
+<footer class="bg-slate-950 text-slate-400">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row justify-between gap-3 text-xs">
+    <p>© 2026 Fırat Akol (StashWhisper). All rights reserved.</p>
+    <div class="flex gap-5">
+      <a href="privacy.html" class="hover:text-white">Privacy</a>
+      <a href="terms.html" class="hover:text-white">Terms</a>
+      <a href="refund.html" class="hover:text-white">Refunds</a>
+      <a href="faq.html" class="hover:text-white">FAQ</a>
+      <a href="attribution.html" class="hover:text-white">Licenses</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
