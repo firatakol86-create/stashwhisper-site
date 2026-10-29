@@ -59,7 +59,7 @@
 <main class="max-w-3xl mx-auto px-5 sm:px-8 pt-32 pb-24">
 
   <h1 class="text-4xl font-black tracking-tight">Privacy Policy</h1>
-  <p class="mt-2 text-sm text-slate-500">Effective Date: October 11, 2026</p>
+  <p class="mt-2 text-sm text-slate-500">Effective Date: October 29, 2026</p>
 
   <p class="mt-8 text-slate-700 leading-relaxed">
     StashWhisper ("StashWhisper", "we", "us", or "our") is a local-first
@@ -78,8 +78,11 @@
   </p>
   <p class="mt-3 text-slate-700 leading-relaxed">
     Audio recording and speech-to-text transcription are performed
-    entirely on your device using whisper.cpp, a locally installed
-    speech-recognition engine. Your audio recordings and transcripts are
+    entirely on your device, using the whisper.cpp engine (Whisper Large V3
+    Turbo model) or NVIDIA's Parakeet model run through ONNX Runtime — both
+    installed locally with the app. This includes transcribing audio files
+    you choose (MP3/WAV): the file is read and transcribed on your device and
+    is not uploaded. Your audio recordings and transcripts are
     never uploaded to a StashWhisper server — we do not operate one for
     transcription.
   </p>
